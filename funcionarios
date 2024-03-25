@@ -1,0 +1,36 @@
+class Funcionario:
+    def _init_ (self,id,nome,salario):
+        self.id = id
+        self.nome = nome
+        self.salariio = salario
+
+    def aumentar_salario (self,percentual):
+        self.salario = self.salario + (self.salario*percentual)
+
+class Gerente(Funcionario):
+    def _init_ (self,id,nome,salario,departamento):
+        super()._init_(id,nome,salario)
+        self.departamento = departamento
+
+    def promover (self,funcionario):
+        self.salario = self.salario + (self.salario*0.10)
+
+class Funcionario_Reg(Funcionario):
+    def _init_ (self,id,nome,salario):
+        self.id = id
+        self.nome = nome
+        self.salario = salario
+
+    def calcular_folha_pagamento (lista_funcionarios):
+        total_folha = 0
+        for funcionario in lista_funcionarios:
+            total_folha += funcionario.salario 
+        return total_folha
+    
+fun1 = Funcionario_Reg('1','Emilly',2000.00)
+fun2 = Funcionario_Reg('2','Pedro',1500.00)
+ger1 = Gerente('3','Camile',3000.00,'RH')
+
+lista_funcionarios = [fun1,fun2,ger1]
+total_folha_pag = Funcionario_Reg.calcular_folha_pagamento(lista_funcionarios)
+print (total_folha_pag)
